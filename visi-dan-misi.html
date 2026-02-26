@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wisata - Desa Pait</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/script.js" defer></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #111;
+    }
+
+    /* HEADER */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 50px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-left img {
+      width: 60px;
+      height: auto;
+    }
+
+    .logo-left h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .logo-left div {
+      font-size: 12px;
+      color: #555;
+    }
+      </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-left">
+      <img src="img/logo.svg" alt="Logo Desa" />
+      <div>
+        <h3>DESA PAIT</h3>
+        <div>KECAMATAN KASEMBON KABUPATEN MALANG</div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+       <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li class="dropdown">
+          <a href="profil.html" class="active">Profil</a>
+          <ul class="dropdown-content">
+            <li><a href="sejarah.html">Sejarah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+            <li><a href="visi-dan-misi.html" class="active">Visi dan Misi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="informasi.html">Informasi Publik</a>
+          <ul class="dropdown-content">
+            <li><a href="wisata.html">Wisata</a></li>
+            <li><a href="umkm.html">UMKM</a></li>
+            <li><a href="budaya-desa.html">Budaya Desa</a></li>
+            <li><a href="lembaga-masyarakat.html">Lembaga Masyarakat</a></li>
+          </ul>
+        </li>
+        <li><a href="berita.html">Berita</a></li>
+        <li class="dropdown">
+          <a href="jelajahi.html">Jelajahi</a>
+          <ul class="dropdown-content">
+            <li><a href="peta.html">Peta</a></li>
+            <li><a href="rute-pariwisata.html">Rute Pariwisata</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misi Desa Pait</title>
+  <style>
+    :root {
+      --merah: #F60000;
+      --kuning: #FFE925;
+      --hitam: #000000;
+      --putih: #FFFFFF;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: var(--putih);
+      color: var(--hitam);
+      line-height: 1.6;
+    }
+
+    .visi-misi-section {
+      padding: 30px 100px;
+      background: linear-gradient(180deg, var(--putih) 0%, #fff7f7 100%);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .section-title .small {
+      color: var(--kuning);
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-title h1 {
+      color: var(--merah);
+      font-size: 36px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .misi-card {
+      background-color: var(--merah);
+      color: var(--putih);
+      border-left: 10px solid var(--kuning);
+      border-radius: 20px;
+      padding: 30px 40px;
+      margin: 25px auto;
+      max-width: 900px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .misi-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .misi-card h3 {
+      color: var(--kuning);
+      font-size: 22px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 5px;
+    }
+
+    .misi-card p, 
+    .misi-card li {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .misi-card ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .misi-card li {
+      margin-bottom: 8px;
+      list-style-type: "– ";
+    }
+
+    @media (max-width: 768px) {
+      .visi-misi-section {
+        padding: 40px 25px;
+      }
+
+      .misi-card {
+        padding: 25px 20px;
+      }
+
+      .misi-card h3 {
+        font-size: 20px;
+      }
+
+      .section-title h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="main visi-misi-section">
+    <div class="section-title">
+      <div class="small">Misi</div>
+      <h1>Desa Pait</h1>
+    </div>
+
+    <div class="misi-card">
+      <h3>MISI BIDANG PELAYANAN</h3>
+      <p>Meningkatkan pelayanan kepada masyarakat yang efisien, demokratis, adil dan merata.</p>
+    </div>
+
+    <div class="misi-card">
+      <h3>MISI BIDANG PEMBERDAYAAN</h3>
+      <ul>
+        <li>Meningkatkan peran serta masyarakat melalui lembaga/organisasi kemasyarakatan baik yang bergerak di bidang ekonomi, sosial, budaya, politik dalam rangka mendorong kemandirian masyarakat dengan meningkatkan sumber daya manusia.</li>
+        <li>Pemberdayaan kelompok ekonomi konsumtif menjadi kelompok ekonomi produktif.</li>
+        <li>Menjadikan Desa Pait penghasil buah unggul lokal durian dan alpukat.</li>
+      </ul>
+    </div>
+
+    <div class="misi-card">
+      <h3>MISI BIDANG PEMBANGUNAN</h3>
+      <ul>
+        <li>Membangun fasilitas masyarakat yang mengarah dan mendukung kepada masyarakat sehat dan bebas stunting.</li>
+        <li>Meningkatkan kehidupan masyarakat yang semakin layak, adil dan merata serta memberi perhatian utama pada kebutuhan dasar dan terpenuhinya sarana prasarana umum.</li>
+      </ul>
+    </div>
+
+  </main>
+</body>
+</html>
+
+
+<footer style=" 
+  background: #F60000;
+  padding: 50px 20px;
+  color: white;
+  margin-top: 50px;
+">
+
+  <div style="
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  ">
+
+    <!-- Kolom 1: Logo + Profil -->
+    <div style="flex: 1; min-width: 250px;">
+      <img src="img/logo.svg" alt="Logo Desa Pait" style="width:110px; margin-bottom:15px;">
+
+      <h3 style="margin:0 0 10px; font-size:22px; font-weight:700;">Pemerintah Desa Pait</h3>
+
+      <p style="line-height:1.5; font-size:15px; margin:0;">
+        Balai Desa Pait<br>
+        Kecamatan Kasembon, Kabupaten Malang<br>
+        Provinsi Jawa Timur, 65393
+      </p>
+    </div>
+
+
+    <!-- Kolom 2: Hubungi Kami -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Hubungi Kami</h3>
+
+      <!-- WhatsApp -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">📞</span>
+        <a href="https://wa.me/6281931909576" target="_blank" style="color:white; text-decoration:none;">
+          081931909576
+        </a>
+      </p>
+
+      <!-- TikTok -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">🎵</span>
+        <a href="https://www.tiktok.com/@pemdespaitkasembonmalang" target="_blank" style="color:white; text-decoration:none;">
+          @pemdespaitkasembonmalang
+        </a>
+      </p>
+
+      <!-- Gmail -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">📧</span>
+        <a href="mailto:desapait87@gmail.com" style="color:white; text-decoration:none;">
+          desapait87@gmail.com
+        </a>
+      </p>
+
+      <!-- YouTube -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">▶️</span>
+        <a href="https://www.youtube.com/@desapaitkasembon7508" target="_blank" style="color:white; text-decoration:none;">
+          @desapaitkasembon7508
+        </a>
+      </p>
+
+      <!-- Ikon Sosmed -->
+      <div style="display:flex; gap:12px; margin-top:10px; font-size:22px;">
+        <a href="https://wa.me/6281931909576" target="_blank" style="color:white; text-decoration:none;">📞</a>
+        <a href="https://www.tiktok.com/@pemdespaitkasembonmalang" target="_blank" style="color:white; text-decoration:none;">🎵</a>
+        <a href="mailto:desapait87@gmail.com" style="color:white; text-decoration:none;">📧</a>
+        <a href="https://www.youtube.com/@desapaitkasembon7508" target="_blank" style="color:white; text-decoration:none;">▶️</a>
+      </div>
+    </div>
+
+
+    <!-- Kolom 3: Nomor Penting -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Nomor Penting</h3>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="tel:081335940393" style="color:white; text-decoration:underline;">
+          Kepala Desa Pait 
+        </a>
+      </p>
+    </div>
+
+
+    <!-- Kolom 4: Jelajahi -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Jelajahi</h3>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="peta.html" style="color:white; text-decoration:underline;">Peta</a>
+      </p>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="rute-pariwisata.html" style="color:white; text-decoration:underline;">
+          Rute Pariwisata
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+  <hr style="border:0; height:1px; background:white; opacity:0.3; margin:30px 0;">
+
+  <p style="
+    text-align:center;
+    font-size:14px;
+    opacity:0.85;
+    margin:0;
+  ">
+    © 2025 Pemerintah Desa Pait — Semua Hak Dilindungi
+  </p>
+</footer>
+
+  </div>
+</body>
+</html>

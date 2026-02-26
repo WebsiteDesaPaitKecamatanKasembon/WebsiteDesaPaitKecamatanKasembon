@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rute Pariwisata - Desa Pait</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+    }
+
+    /* HEADER */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 50px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-left img {
+      width: 60px;
+      height: auto;
+    }
+    .logo-left h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+    }
+    .logo-left div {
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* --- RUTE CONTENT --- */
+    .content-wrapper {
+      display: flex;
+      height: calc(100vh - 90px);
+    }
+
+    #map {
+      width: 70%;
+      height: 100%;
+      position: relative;
+    }
+
+    .map-title {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255,255,255,0.9);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      border-left: 4px solid #d00;
+      z-index: 9999;
+    }
+
+    .route-box {
+      width: 30%;
+      background: #fff;
+      border-left: 2px solid #ddd;
+      padding: 16px 20px;
+      overflow-y: auto;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #d00;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 16px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    #distanceInfo {
+      font-weight: bold;
+      padding: 10px;
+      background: #ffecec;
+      border: 2px solid red;
+      border-radius: 8px;
+      text-align: center;
+      display: none;
+      margin-bottom: 15px;
+    }
+
+    .steps-list {
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .steps-list b {
+      color: #c00;
+    }
+    .map-link {
+      display: block;
+      font-size: 13px;
+      margin-left: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+    .map-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .content-wrapper {
+        flex-direction: column;
+        height: auto;
+      }
+      #map {
+        width: 100%;
+        height: 400px;
+      }
+      .route-box {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="logo-left">
+      <img src="img/logo.svg" alt="Logo Desa" />
+      <div>
+        <h3>DESA PAIT</h3>
+        <div>KECAMATAN KASEMBON KABUPATEN MALANG</div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li class="dropdown">
+          <a href="profil.html">Profil</a>
+          <ul class="dropdown-content">
+            <li><a href="sejarah.html">Sejarah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+            <li><a href="visi-dan-misi.html">Visi dan Misi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="informasi.html">Informasi Publik</a>
+          <ul class="dropdown-content">
+            <li><a href="wisata.html">Wisata</a></li>
+            <li><a href="umkm.html">UMKM</a></li>
+            <li><a href="budaya-desa.html">Budaya Desa</a></li>
+            <li><a href="lembaga-masyarakat.html">Lembaga Masyarakat</a></li>
+          </ul>
+        </li>
+        <li><a href="berita.html">Berita</a></li>
+        <li class="dropdown">
+          <a href="jelajahi.html" class="active">Jelajahi</a>
+          <ul class="dropdown-content">
+            <li><a href="peta.html">Peta</a></li>
+            <li><a href="rute-pariwisata.html">Rute Pariwisata</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- KONTEN RUTE -->
+  <div class="content-wrapper">
+    <div id="map">
+      <div class="map-title">Rute Pariwisata Desa Pait</div>
+    </div>
+
+    <div class="route-box">
+      <div class="title">Pilih Rute Titik Awal</div>
+      <select id="startPointSelect">
+        <option value="Balai Desa">Balai Desa</option>
+        <option value="Batik Tulis">Batik Tulis</option>
+        <option value="Produksi Tusuk Sate">Produksi Tusuk Sate</option>
+        <option value="Kopi Gupait">Kopi Gupait</option>
+        <option value="Kandang Sapi Perah">Kandang Sapi Perah</option>
+        <option value="Koperasi Susu">Koperasi Susu</option>
+        <option value="Coban Kethak">Coban Kethak</option>
+        <option value="Coban Slimpring">Coban Slimpring</option>
+      </select>
+
+      <div id="distanceInfo"></div>
+      <div class="steps-list" id="routeSteps"></div>
+    </div>
+  </div>
+
+<script>
+// ===============================
+// DATA LOKASI (KOORDINAT)
+// ===============================
+const locations = {
+  "Balai Desa": [-7.8026316,112.3656867],
+  "Batik Tulis": [-7.8033707,112.3645719],
+  "Produksi Tusuk Sate": [-7.803584,112.367272],
+  "Kopi Gupait": [-7.7999141,112.364961],
+  "Kandang Sapi Perah": [-7.803909,112.371169],
+  "Koperasi Susu": [-7.804265,112.372452],
+  "Coban Kethak": [-7.8028103,112.3569176],
+  "Coban Slimpring": [-7.793932,112.4032878]
+};
+
+const mapLinks = {
+  "Balai Desa":"https://maps.app.goo.gl/3HaUk1QvLNeQoe46A",
+  "Batik Tulis":"https://maps.app.goo.gl/FZVJr1Afrw4VUTjN7",
+  "Produksi Tusuk Sate":"https://maps.app.goo.gl/XggQjXmGU3gN6TQB7",
+  "Kopi Gupait":"https://maps.app.goo.gl/izhRiKhcFKGTzMeQ7",
+  "Kandang Sapi Perah":"https://maps.app.goo.gl/VAxyMakRKh5tbZMy5",
+  "Koperasi Susu":"https://maps.app.goo.gl/fMiZ2Ws5x5THPEwv9",
+  "Coban Kethak":"https://maps.app.goo.gl/LFd2x1CG9tJAFkQj9",
+  "Coban Slimpring":"https://maps.app.goo.gl/djLwGSKVEvWfqMm99"
+};
+
+// ===============================
+// NODE & INDEX
+// ===============================
+const nodes = Object.keys(locations);
+const indexOf = Object.fromEntries(nodes.map((n,i)=>[n,i]));
+const N = nodes.length;
+const INF = Infinity;
+
+// ===============================
+// MATRKS JARAK AWAL (GRAPH)
+// HANYA EDGE YANG TERHUBUNG
+// ===============================
+const graph = [
+  [0,147.77,INF,INF,INF,INF,INF,INF],
+  [147.77,0,298.40,INF,INF,INF,INF,INF],
+  [INF,298.40,0,480.98,INF,INF,INF,INF],
+  [INF,INF,480.98,0,815.50,INF,INF,INF],
+  [INF,INF,INF,815.50,0,193.60,INF,INF],
+  [INF,INF,INF,INF,193.60,0,1718.9,INF],
+  [INF,INF,INF,INF,INF,1718.9,0,5102.9],
+  [INF,INF,INF,INF,INF,INF,5102.9,0]
+];
+
+// ===============================
+// APSP – FLOYD WARSHALL
+// ===============================
+function floydWarshall(m){
+  const d = m.map(row => row.slice());
+
+  for(let k=0;k<N;k++){
+    for(let i=0;i<N;i++){
+      for(let j=0;j<N;j++){
+        if(d[i][k] + d[k][j] < d[i][j]){
+          d[i][j] = d[i][k] + d[k][j];
+        }
+      }
+    }
+  }
+  return d;
+}
+const APSP = floydWarshall(graph);
+
+// ===============================
+// TSP PATH – NEAREST NEIGHBOR
+// ===============================
+function tspNearestNeighbor(startName){
+  const start = indexOf[startName];
+  const visited = Array(N).fill(false);
+
+  let path = [start];
+  let total = 0;
+  visited[start] = true;
+
+  for(let step=1; step<N; step++){
+    const last = path[path.length-1];
+    let next = -1;
+    let best = INF;
+
+    for(let i=0;i<N;i++){
+      if(!visited[i] && APSP[last][i] < best){
+        best = APSP[last][i];
+        next = i;
+      }
+    }
+
+    visited[next] = true;
+    path.push(next);
+    total += best;
+  }
+
+  return {
+    order: path.map(i=>nodes[i]),
+    distance: Math.round(total)
+  };
+}
+
+// ===============================
+// LEAFLET MAP
+// ===============================
+let map = L.map('map').setView([-7.8026,112.3656],14);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+
+let markers=[], polyline, movingMarker;
+
+function drawRoute(start){
+  const data = tspNearestNeighbor(start);
+  const route = data.order.map(n=>locations[n]);
+
+  markers.forEach(m=>map.removeLayer(m));
+  markers=[];
+  if(polyline) map.removeLayer(polyline);
+  if(movingMarker) map.removeLayer(movingMarker);
+
+  polyline = L.polyline(route,{color:"yellow",weight:5}).addTo(map);
+  map.fitBounds(polyline.getBounds());
+
+  route.forEach((pos,i)=>{
+    let mk = L.marker(pos).addTo(map);
+    mk.bindTooltip(`${i+1}. ${data.order[i]}`,{permanent:true});
+    markers.push(mk);
+  });
+
+  movingMarker = L.marker(route[0]).addTo(map);
+  animate(route,0);
+
+  document.getElementById("distanceInfo").style.display="block";
+  document.getElementById("distanceInfo").innerHTML =
+    `Total Jarak: <span style="color:red">${data.distance.toLocaleString()} meter</span>`;
+
+  document.getElementById("routeSteps").innerHTML =
+    data.order.map((v,i)=>`
+      <b>${i+1}.</b> ${v}<br>
+      <a href="${mapLinks[v]}" target="_blank" class="map-link">Lihat di Google Maps</a>
+    `).join("<br>");
+}
+
+function animate(route,i){
+  if(i>=route.length) return;
+  movingMarker.setLatLng(route[i]);
+  setTimeout(()=>animate(route,i+1),1200);
+}
+
+document.getElementById("startPointSelect")
+  .addEventListener("change",e=>drawRoute(e.target.value));
+
+drawRoute("Balai Desa");
+</script>
+
+
+<footer style=" 
+  background: #F60000;
+  padding: 50px 20px;
+  color: white;
+  margin-top: 50px;
+">
+
+  <div style="
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  ">
+
+    <!-- Kolom 1: Logo + Profil -->
+    <div style="flex: 1; min-width: 250px;">
+      <img src="img/logo.svg" alt="Logo Desa Pait" style="width:110px; margin-bottom:15px;">
+
+      <h3 style="margin:0 0 10px; font-size:22px; font-weight:700;">Pemerintah Desa Pait</h3>
+
+      <p style="line-height:1.5; font-size:15px; margin:0;">
+        Balai Desa Pait<br>
+        Kecamatan Kasembon, Kabupaten Malang<br>
+        Provinsi Jawa Timur, 65393
+      </p>
+    </div>
+
+
+    <!-- Kolom 2: Hubungi Kami -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Hubungi Kami</h3>
+
+      <!-- WhatsApp -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">📞</span>
+        <a href="https://wa.me/6281931909576" target="_blank" style="color:white; text-decoration:none;">
+          081931909576
+        </a>
+      </p>
+
+      <!-- TikTok -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">🎵</span>
+        <a href="https://www.tiktok.com/@pemdespaitkasembonmalang" target="_blank" style="color:white; text-decoration:none;">
+          @pemdespaitkasembonmalang
+        </a>
+      </p>
+
+      <!-- Gmail -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">📧</span>
+        <a href="mailto:desapait87@gmail.com" style="color:white; text-decoration:none;">
+          desapait87@gmail.com
+        </a>
+      </p>
+
+      <!-- YouTube -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">▶️</span>
+        <a href="https://www.youtube.com/@desapaitkasembon7508" target="_blank" style="color:white; text-decoration:none;">
+          @desapaitkasembon7508
+        </a>
+      </p>
+
+      <!-- Ikon Sosmed -->
+      <div style="display:flex; gap:12px; margin-top:10px; font-size:22px;">
+        <a href="https://wa.me/6281931909576" target="_blank" style="color:white; text-decoration:none;">📞</a>
+        <a href="https://www.tiktok.com/@pemdespaitkasembonmalang" target="_blank" style="color:white; text-decoration:none;">🎵</a>
+        <a href="mailto:desapait87@gmail.com" style="color:white; text-decoration:none;">📧</a>
+        <a href="https://www.youtube.com/@desapaitkasembon7508" target="_blank" style="color:white; text-decoration:none;">▶️</a>
+      </div>
+    </div>
+
+
+    <!-- Kolom 3: Nomor Penting -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Nomor Penting</h3>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="tel:081335940393" style="color:white; text-decoration:underline;">
+          Kepala Desa Pait 
+        </a>
+      </p>
+    </div>
+
+
+    <!-- Kolom 4: Jelajahi -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Jelajahi</h3>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="peta.html" style="color:white; text-decoration:underline;">Peta</a>
+      </p>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="rute-pariwisata.html" style="color:white; text-decoration:underline;">
+          Rute Pariwisata
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+  <hr style="border:0; height:1px; background:white; opacity:0.3; margin:30px 0;">
+
+  <p style="
+    text-align:center;
+    font-size:14px;
+    opacity:0.85;
+    margin:0;
+  ">
+    © 2025 Pemerintah Desa Pait — Semua Hak Dilindungi
+  </p>
+</footer>
+
+</body>
+</html>
+

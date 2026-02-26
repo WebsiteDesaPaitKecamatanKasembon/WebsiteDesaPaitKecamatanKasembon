@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Batik Tulis - Usaha Mikro, Kecil, dan Menengah</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #111;
+    }
+
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 50px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-left img {
+      width: 60px;
+    }
+
+    .logo-left h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .logo-left div {
+      font-size: 12px;
+      color: #555;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #F60000;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      gap: 25px;
+    }
+
+    .content {
+      background: #fff;
+      padding: 30px;
+      width: 65%;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .content p {
+      text-align: justify;
+      text-indent: 40px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .image-container {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+    .main-image {
+      width: 65%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .side-images {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 35%;
+    }
+
+    .side-images img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .side-images img:hover {
+      transform: scale(1.05);
+    }
+
+    .image-label {
+      text-align: right;
+      font-size: 13px;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      color: #F60000;
+      margin-top: 10px;
+    }
+
+    h3 {
+      margin-bottom: 5px;
+    }
+
+    .sidebar {
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      width: 25%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .link-lain a {
+      text-decoration: none;
+      color: #000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    .link-lain a:hover {
+      background-color: #f8f8f8;
+      color: #F60000;
+    }
+
+    .link-lain img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo-left">
+      <img src="img/logo.svg" alt="Logo Desa" />
+      <div>
+        <h3>DESA PAIT</h3>
+        <div>KECAMATAN KASEMBON KABUPATEN MALANG</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="burger" aria-label="menu" role="button" tabindex="0">
+        <div></div><div></div><div></div>
+      </div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li class="dropdown">
+            <a href="profil.html">Profil</a>
+            <ul class="dropdown-content">
+              <li><a href="sejarah.html">Sejarah</a></li>
+              <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+              <li><a href="visi-dan-misi.html">Visi dan Misi</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="informasi.html" class="active">Informasi Publik</a>
+            <ul class="dropdown-content">
+              <li><a href="wisata.html" class="active">Wisata</a></li>
+              <li><a href="umkm.html">UMKM</a></li>
+              <li><a href="budaya-desa.html">Budaya Desa</a></li>
+              <li><a href="lembaga-masyarakat.html">Lembaga Masyarakat</a></li>
+            </ul>
+          </li>
+          <li><a href="berita.html">Berita</a></li>
+          <li class="dropdown">
+            <a href="jelajahi.html">Jelajahi</a>
+            <ul class="dropdown-content">
+              <li><a href="peta.html">Peta</a></li>
+              <li><a href="rute-pariwisata.html">Rute Pariwisata</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="content">
+      <h3>Usaha Mikro, Kecil, dan Menengah</h3>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <h2>KOPI GUPAIT</h2>
+        <div class="image-label">Ditulis oleh Administrator</div>
+      </div>
+
+      <div class="image-container">
+        <img src="img/umkm2.png" alt="Batik Tulis Desa Pait" class="main-image">
+        <div class="side-images">
+          <img src="img/umkm2-2.png" alt="Kemasan Kopi">
+          <img src="img/umkm2-3.png" alt="Penjemuran Kopi">
+        </div>
+      </div>
+
+      <p>
+        Kopi Gupait merupakan salah satu produk unggulan dari Desa Pait, Kecamatan Kasembon, Kabupaten Malang, yang dikenal sebagai daerah penghasil kopi berkualitas. Hampir setiap rumah di Desa Pait memiliki tradisi menjemur biji kopi secara alami di bawah sinar matahari, menjaga cita rasa dan aroma khas kopi pegunungan. Dari tradisi inilah lahir Kopi Gupait, kopi lokal yang mengusung cita rasa kuat dan khas khas Robusta Malang.
+      </p>
+      <p>
+        Diproses secara tradisional dengan sentuhan modern, Kopi Gupait Kasembon menawarkan sensasi rasa pahit yang seimbang dengan aroma khas yang menggugah. Biji kopi pilihan dipetik langsung dari perkebunan rakyat di sekitar Desa Pait, kemudian melalui proses penjemuran alami, sangrai manual, dan penggilingan yang menjaga kualitas terbaiknya.
+      </p>
+      <p>
+        Selain menjaga kualitas rasa, Kopi Gupait juga telah memiliki izin edar dan sertifikasi dari BPOM serta label halal, menjadikannya produk kopi lokal yang tidak hanya nikmat tetapi juga aman dan terpercaya. Kopi ini tersedia dalam berbagai varian kemasan, cocok untuk oleh-oleh khas Malang maupun dinikmati sehari-hari. Bagi pecinta kopi, mencicipi Kopi Gupait dari Desa Pait bukan sekadar menikmati minuman, tetapi juga merasakan hasil kerja keras petani lokal dan kearifan tradisi masyarakat Kasembon yang telah diwariskan turun-temurun.
+      </p>
+    </div>
+
+    <aside class="sidebar">
+      <h3>UMKM Lainnya</h3>
+      <div class="link-lain">
+        <a href="susu-sapi-perah.html"><img src="img/umkm3.png" alt="Susu sapi Perah"><p><b>SUSU SAPI MURNI</b></p></a>
+        <a href="tusuk-sate.html"><img src="img/umkm4.png" alt="Tusuk Sate"><p><b>TUSUK SATE</b></p></a>
+        <a href="batik-tulis.html"><img src="img/umkm1.png" alt="Batik Tulis"><p><b>BATIK TULIS</b></p></a>
+      </div>
+    </aside>
+  </main>
+
+<footer style=" 
+  background: #F60000;
+  padding: 50px 20px;
+  color: white;
+  margin-top: 50px;
+">
+
+  <div style="
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  ">
+
+    <!-- Kolom 1: Logo + Profil -->
+    <div style="flex: 1; min-width: 250px;">
+      <img src="img/logo.svg" alt="Logo Desa Pait" style="width:110px; margin-bottom:15px;">
+
+      <h3 style="margin:0 0 10px; font-size:22px; font-weight:700;">Pemerintah Desa Pait</h3>
+
+      <p style="line-height:1.5; font-size:15px; margin:0;">
+        Balai Desa Pait<br>
+        Kecamatan Kasembon, Kabupaten Malang<br>
+        Provinsi Jawa Timur, 65393
+      </p>
+    </div>
+
+
+    <!-- Kolom 2: Hubungi Kami -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Hubungi Kami</h3>
+
+      <!-- WhatsApp -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">📞</span>
+        <a href="https://wa.me/6281931909576" target="_blank" style="color:white; text-decoration:none;">
+          081931909576
+        </a>
+      </p>
+
+      <!-- TikTok -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">🎵</span>
+        <a href="https://www.tiktok.com/@pemdespaitkasembonmalang" target="_blank" style="color:white; text-decoration:none;">
+          @pemdespaitkasembonmalang
+        </a>
+      </p>
+
+      <!-- Gmail -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">📧</span>
+        <a href="mailto:desapait87@gmail.com" style="color:white; text-decoration:none;">
+          desapait87@gmail.com
+        </a>
+      </p>
+
+      <!-- YouTube -->
+      <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+        <span style="font-size:20px;">▶️</span>
+        <a href="https://www.youtube.com/@desapaitkasembon7508" target="_blank" style="color:white; text-decoration:none;">
+          @desapaitkasembon7508
+        </a>
+      </p>
+
+      <!-- Ikon Sosmed -->
+      <div style="display:flex; gap:12px; margin-top:10px; font-size:22px;">
+        <a href="https://wa.me/6281931909576" target="_blank" style="color:white; text-decoration:none;">📞</a>
+        <a href="https://www.tiktok.com/@pemdespaitkasembonmalang" target="_blank" style="color:white; text-decoration:none;">🎵</a>
+        <a href="mailto:desapait87@gmail.com" style="color:white; text-decoration:none;">📧</a>
+        <a href="https://www.youtube.com/@desapaitkasembon7508" target="_blank" style="color:white; text-decoration:none;">▶️</a>
+      </div>
+    </div>
+
+
+    <!-- Kolom 3: Nomor Penting -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Nomor Penting</h3>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="tel:081335940393" style="color:white; text-decoration:underline;">
+          Kepala Desa Pait 
+        </a>
+      </p>
+    </div>
+
+
+    <!-- Kolom 4: Jelajahi -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Jelajahi</h3>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="peta.html" style="color:white; text-decoration:underline;">Peta</a>
+      </p>
+
+      <p style="margin:7px 0; font-size:15px;">
+        <a href="rute-pariwisata.html" style="color:white; text-decoration:underline;">
+          Rute Pariwisata
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+  <hr style="border:0; height:1px; background:white; opacity:0.3; margin:30px 0;">
+
+  <p style="
+    text-align:center;
+    font-size:14px;
+    opacity:0.85;
+    margin:0;
+  ">
+    © 2025 Pemerintah Desa Pait — Semua Hak Dilindungi
+  </p>
+</footer>
+
+</body>
+</html>

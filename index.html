@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beranda - Desa Pait</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/script.js" defer></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #111;
+    }
+
+    /* HEADER */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 50px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-left img {
+      width: 60px;
+      height: auto;
+    }
+
+    .logo-left h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .logo-left div {
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* HERO */
+    .hero {
+      height: 85vh;
+      background-image: url('img/gapura.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-inner h1 {
+      font-size: 48px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .hero-inner p {
+      font-size: 18px;
+      color: white;
+      max-width: 700px;
+    }
+
+    /* BERITA */
+    .news-section {
+      margin-top: 50px;
+      padding: 0 10%;
+    }
+
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .news-header h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .news-header .all-link {
+      color: #F60000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .news-header .all-link:hover {
+      color: #FFE925;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .news-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+      transition: 0.3s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .news-card img.thumb {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .news-card .body {
+      padding: 18px;
+    }
+
+    .news-card .meta {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 6px;
+    }
+
+    .news-card h3 {
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+
+    .news-card p {
+      font-size: 14px;
+      margin-bottom: 15px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .news-card .btn {
+      padding: 8px 14px;
+      background: #F60000;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .news-card .btn:hover {
+      background: #FFE925;
+      color: #111;
+    }
+
+    @media(max-width: 650px) {
+      .news-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-left">
+      <img src="img/logo.svg" alt="Logo Desa" />
+      <div>
+        <h3>DESA PAIT</h3>
+        <div>KECAMATAN KASEMBON KABUPATEN MALANG</div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Beranda</a></li>
+
+        <li class="dropdown">
+          <a href="#">Profil</a>
+          <ul class="dropdown-content">
+            <li><a href="sejarah.html">Sejarah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+            <li><a href="visi-dan-misi.html">Visi dan Misi</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Informasi Publik</a>
+          <ul class="dropdown-content">
+            <li><a href="wisata.html">Wisata</a></li>
+            <li><a href="umkm.html">UMKM</a></li>
+            <li><a href="budaya-desa.html">Budaya Desa</a></li>
+            <li><a href="lembaga-masyarakat.html">Lembaga Masyarakat</a></li>
+          </ul>
+        </li>
+
+        <li><a href="berita.html">Berita</a></li>
+
+        <li class="dropdown">
+          <a href="#">Jelajahi</a>
+          <ul class="dropdown-content">
+            <li><a href="peta.html">Peta</a></li>
+            <li><a href="rute-pariwisata.html">Rute Pariwisata</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Selamat Datang di <span>Desa Pait</span></h1>
+      <p>Desa dengan potensi alam yang melimpah dan kearifan lokal sebagai bekal menuju masa depan yang berkelanjutan</p>
+    </div>
+  </section>
+
+  
+  <!-- CONTENT -->
+  <main>
+    <section class="content">
+      <h2>Beranda</h2>
+      <p style="line-height:1.7">
+        Selamat datang di situs resmi Desa Pait. Lihat informasi, profil desa, berita terbaru, dan jelajahi potensi wisata kami.
+      </p>
+    </section>
+
+    <section class="cta">
+      <h3>Mari Bersama Membangun Desa</h3>
+      <p>Mengembangkan serta memajukan potensi alam serta kearifan Desa Pait menjadi Desa Digital</p>
+    </section>
+
+
+    <!-- BERITA TERBARU -->
+    <section class="news-section">
+
+      <div class="news-header">
+        <h2>Berita Terbaru</h2>
+        <a class="all-link" href="berita.html">Lihat Semua Berita →</a>
+      </div>
+
+      <div class="news-grid">
+
+        <article class="news-card">
+          <img class="thumb" src="img/ilaspp.jpeg" alt="ILASPP">
+          <div class="body">
+            <div class="meta">2 September 2025</div>
+            <h3>Penyuluhan Program ILASPP</h3>
+            <p>Pemerintah Desa Pait mengadakan sosialisasi penataan tata batas desa.</p>
+            <a class="btn" href="ilaspp.html">Baca Selengkapnya</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <img class="thumb" src="img/bumdes.jpeg" alt="BUMDes">
+          <div class="body">
+            <div class="meta">12 Agustus 2025</div>
+            <h3>Pembentukan Pengurus BUMDes</h3>
+            <p>Musyawarah Desa untuk pembentukan pengurus BUMDes guna meningkatkan ekonomi lokal.</p>
+            <a class="btn" href="bumdes.html">Baca Selengkapnya</a>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer style="
+    background: #F60000;
+    padding: 50px 20px;
+    color: white;
+    margin-top: 50px;
+  ">
+
+    <div style="
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    ">
+
+      <div style="flex: 1; min-width: 250px;">
+        <img src="img/logo.svg" alt="Logo Desa Pait" style="width:110px; margin-bottom:15px;">
+        <h3 style="margin:0 0 10px; font-size:22px; font-weight:700;">Pemerintah Desa Pait</h3>
+        <p style="line-height:1.5; font-size:15px; margin:0;">
+          Balai Desa Pait<br>
+          Kecamatan Kasembon, Kabupaten Malang<br>
+          Provinsi Jawa Timur, 65393
+        </p>
+      </div>
+
+      <div style="flex: 1; min-width: 250px;">
+        <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Hubungi Kami</h3>
+
+        <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+          <span style="font-size:20px;">📞</span>
+          <a href="https://wa.me/6281931909576" target="_blank" style="color:white; text-decoration:none;">
+            081931909576
+          </a>
+        </p>
+
+        <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+          <span style="font-size:20px;">🎵</span>
+          <a href="https://www.tiktok.com/@pemdespaitkasembonmalang" target="_blank" style="color:white; text-decoration:none;">
+            @pemdespaitkasembonmalang
+          </a>
+        </p>
+
+        <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+          <span style="font-size:20px;">📧</span>
+          <a href="mailto:desapait87@gmail.com" style="color:white; text-decoration:none;">
+            desapait87@gmail.com
+          </a>
+        </p>
+
+        <p style="display:flex; align-items:center; gap:10px; margin:7px 0;">
+          <span style="font-size:20px;">▶️</span>
+          <a href="https://www.youtube.com/@desapaitkasembon7508" target="_blank" style="color:white; text-decoration:none;">
+            @desapaitkasembon7508
+          </a>
+        </p>
+
+      </div>
+
+      <div style="flex: 1; min-width: 250px;">
+        <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Nomor Penting</h3>
+        <p style="margin:7px 0; font-size:15px;">
+          <a href="tel:081335940393" style="color:white; text-decoration:underline;">
+            Kepala Desa Pait 
+          </a>
+        </p>
+      </div>
+
+      <div style="flex: 1; min-width: 250px;">
+        <h3 style="font-size:22px; margin-bottom:15px; font-weight:700;">Jelajahi</h3>
+        <p style="margin:7px 0; font-size:15px;">
+          <a href="peta.html" style="color:white; text-decoration:underline;">Peta</a>
+        </p>
+        <p style="margin:7px 0; font-size:15px;">
+          <a href="rute-pariwisata.html" style="color:white; text-decoration:underline;">
+            Rute Pariwisata
+          </a>
+        </p>
+      </div>
+
+    </div>
+
+    <hr style="border:0; height:1px; background:white; opacity:0.3; margin:30px 0;">
+
+    <p style="
+      text-align:center;
+      font-size:14px;
+      opacity:0.85;
+      margin:0;
+    ">
+      © 2025 Pemerintah Desa Pait — Semua Hak Dilindungi
+    </p>
+  </footer>
+
+</body>
+</html>
+
