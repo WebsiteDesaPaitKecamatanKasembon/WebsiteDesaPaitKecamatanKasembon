@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rute Pariwisata - Desa Pait</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/script.js" defer></script>
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-left">
+      <img src="img/logo.svg" alt="Logo Desa" />
+      <div>
+        <h3>DESA PAIT</h3>
+        <div>KECAMATAN KASEMBON KABUPATEN MALANG</div>
+      </div>
+    </div>
+    <!-- BURGER MENU (MOBILE) -->
+    <div class="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+
+        <li class="dropdown">
+          <a href="#">Profil</a>
+          <ul class="dropdown-content">
+            <li><a href="sejarah.html">Sejarah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+            <li><a href="visi-dan-misi.html">Visi dan Misi</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Informasi Publik</a>
+          <ul class="dropdown-content">
+            <li><a href="wisata.html">Wisata</a></li>
+            <li><a href="umkm.html">UMKM</a></li>
+            <li><a href="budaya-desa.html">Budaya Desa</a></li>
+            <li><a href="lembaga-masyarakat.html">Lembaga Masyarakat</a></li>
+          </ul>
+        </li>
+
+        <li><a href="berita.html">Berita</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="active">Jelajahi</a>
+          <ul class="dropdown-content">
+            <li><a href="peta.html">Peta</a></li>
+            <li><a href="rute-pariwisata.html" class="active">Rute Pariwisata</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- KONTEN RUTE -->
+  <div class="route-wrapper">
+    <div id="map">
+      <div class="map-title">Rute Pariwisata Desa Pait</div>
+    </div>
+
+    <div class="route-box">
+      <div class="title">Pilih Rute Titik Awal</div>
+      <select id="startPointSelect">
+        <option value="Balai Desa">Balai Desa</option>
+        <option value="Batik Tulis">Batik Tulis</option>
+        <option value="Produksi Tusuk Sate">Produksi Tusuk Sate</option>
+        <option value="Kopi Gupait">Kopi Gupait</option>
+        <option value="Kandang Sapi Perah">Kandang Sapi Perah</option>
+        <option value="Koperasi Susu">Koperasi Susu</option>
+        <option value="Coban Kethak">Coban Kethak</option>
+        <option value="Coban Slimpring">Coban Slimpring</option>
+      </select>
+
+      <div id="distanceInfo"></div>
+      <div class="steps-list" id="routeSteps"></div>
+    </div>
+  </div>
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <img src="img/logo.svg" alt="Logo Desa Pait" class="footer-logo">
+      <h3>Pemerintah Desa Pait</h3>
+      <p>
+        Balai Desa Pait<br>
+        Kecamatan Kasembon, Kabupaten Malang<br>
+        Provinsi Jawa Timur, 65393
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Hubungi Kami</h3>
+
+      <p class="footer-item">
+        <span>📞</span>
+        <a href="https://wa.me/6281931909576" target="_blank">
+          081931909576
+        </a>
+      </p>
+
+      <p class="footer-item">
+        <span>🎵</span>
+        <a href="https://www.tiktok.com/@pemdespaitkasembonmalang" target="_blank">
+          @pemdespaitkasembonmalang
+        </a>
+      </p>
+
+      <p class="footer-item">
+        <span>📧</span>
+        <a href="mailto:desapait87@gmail.com">
+          desapait87@gmail.com
+        </a>
+      </p>
+
+      <p class="footer-item">
+        <span>▶️</span>
+        <a href="https://www.youtube.com/@desapaitkasembon7508" target="_blank">
+          @desapaitkasembon7508
+        </a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Nomor Penting</h3>
+      <p>
+        <a href="tel:081335940393">Kepala Desa Pait</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Jelajahi</h3>
+      <p><a href="peta.html">Peta</a></p>
+      <p><a href="rute-pariwisata.html">Rute Pariwisata</a></p>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <p class="footer-copy">
+    © 2025 Pemerintah Desa Pait — Semua Hak Dilindungi
+  </p>
+</footer>
+
+</body>
+</html>
+
